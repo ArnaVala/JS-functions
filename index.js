@@ -1,12 +1,11 @@
 // JavaScript Introduction
 // FUNCTIONS
 
-// ----------- TASK 1 -----------
+// ----------- TASK 1 - CREATE A CONTACT LIST  -----------
 console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 1 -----------')
+console.log('----------- TASK 1 - CREATE A CONTACT LIST -----------')
 console.log('') // used for clearer formatting in console.log
 
-// CREATE A CONTACT LIST
 /* Create a contact list where every contact must have a name and email, and can (i.e. might not have) have phoneNumber and company. */
 
 const contactList = [
@@ -32,23 +31,12 @@ const contactList = [
 // This is the original contactList 
 console.log(contactList);
 
-// THE TASKS - FUNCTIONS
 
-// ----------- TASK 2 -----------
+
+// ----------- TASK 2 - ADD CONTACT -----------
 console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 2 -----------')
-console.log('') // used for clearer formatting in console.log
-/* ADD function to add a new contact to the list:
-Parameters:
-- name
-- email
-- phone number
-- company
-*/
+console.log('----------- TASK 2 - ADD CONTACT -----------')
 
-// setting parameters values to function
-
-// create a function which checks if email already exist when adding new contact
 function addContact(name, email, phoneNumber, company) {
    let result = '';
 
@@ -79,42 +67,24 @@ function addContact(name, email, phoneNumber, company) {
          'phoneNumber': phoneNumber,
          'company': company
       });
-      // success 
       result = `${name} was added`;
    }
-   // show result in console
    console.log(result); 
 };
 
-
-console.log('----- testing the functions ----')
-console.log('') // used for clearer formatting in console.log
-
 // Testing the function
+console.log('----- add contact test ----')
+console.log('') // used for clearer formatting in console.log
+// Call function
 addContact('Jacoby', 'dr.jacoby@mail.com', 4444444, 'this company') // Email duplicate found
 addContact('Arna Vala','', 5555555, 'another company') // Missing fields
 addContact('Arna Vala', 'arnavala@mail.com', '', '') // Success - Arna Vala added
 
 
 
+// ----------- TASK 3 -REMOVE CONTACT -----------
 console.log('') // used for clearer formatting in console.log
-console.log('----- New contact List -----')
-
-// show new contactList with Arna vala added
-console.log(contactList);
-
-
-
-// ----------- TASK 3 -----------
-console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 3 -----------')
-console.log('') // used for clearer formatting in console.log
-/* 
-REMOVE contact FUNCTION
-- Remove corresponding contact / Email address is the unique identifier
-Parameters:
-- email
-*/
+console.log('----------- TASK 3 -REMOVE CONTACT -----------')
 
 // create a removeContact function- email is Unique Identifier (UID)
 function removeContact(emailUID) {
@@ -152,35 +122,20 @@ function removeContact(emailUID) {
 }
 
 // Testing the function
-console.log('----- testing the functions ----')
+console.log('----- remove contact test ----')
 console.log('') // used for clearer formatting in console.log
+// Call function
 removeContact('this@mail.com') // throws error result
 removeContact('arnavala@mail.com') //removes contact
 
-// show new contactList with contact removed
-console.log('----- New contact List -----')
+
+
+// ----------- TASK 4 - EDIT CONTACT -----------
 console.log('') // used for clearer formatting in console.log
-console.log(contactList);
-
-
-// ----------- TASK 4 -----------
-console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 4 -----------')
-console.log('') // used for clearer formatting in console.log
-
-/* 
-EDIT contact FUNCTION 
-Update/Increment the corresponding contact’s data with the information that’s passed in / Email address is the unique identifier
-Parameters:
-- email
-- newData= property: value - with new info for the contact
- */
-
-// create function editContact
+console.log('----------- TASK 4 - EDIT CONTACT -----------')
 
 function editContact(emailUID, newProp, newValue) {
    let result = '';
-
    // set emailDoesExist to false 
    let emailIsExisting = false;
    let contactName = ''; //name of the email owner - so we can log
@@ -189,14 +144,13 @@ function editContact(emailUID, newProp, newValue) {
    // check if email exists in contactList - like earlier
    for (var i = 0, x = contactList.length; i < x; i++) {
       let existEmail = (contactList[i].email);
-   
+
       if (emailUID === existEmail) {
          emailIsExisting = true;
          contactName = contactList[i].name;
          contact = i;
       }
    };
-
    // If/else statement:
    // check if emailIsExisting = true,
    // If emailIsExisting = true - success and change the info
@@ -211,29 +165,19 @@ function editContact(emailUID, newProp, newValue) {
 }
 
 // Testing the function
-console.log('----- testing the functions ----')
+console.log('----- edit contact test ----')
+console.log('') //used for clearer formatting in console.log
+
+// Call function - editContact(emailUID, newProps, newValue)
+editContact("log.lady@mail.com", "company", "Twin Peaks Logdge ",); // this will change company value
+editContact("log.lady@mail.com", "phoneNumber", 5333333) //this will add a age(newProps):50(newValue)
+editContact("not.existing@mail.com", "name", "Won't compute") //this will pass error - contact not found
+
+
+
+// ----------- TASK 5 - Get Contact Info Function -----------
 console.log('') // used for clearer formatting in console.log
-
-// editContact(emailUID, newProps, newValue)
-editContact("log.lady@mail.com", "company", "Twin Peaks Logdge ",);  // this will change company value
-editContact("log.lady@mail.com", "phoneNumber", 5333333) // this will add a age(newProps):50(newValue)
-editContact("not.existing@mail.com", "name", "Won't compute") // this will pass error - contact not found
-
-console.log('') // used for clearer formatting in console.log
-console.log('----- New contact List -----')
-console.log(contactList) // see age:20 (newProp:newValue) has been added
-
-
-// ----------- TASK 5 -----------
-console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 5 -----------')
-
-/* 
-getContactInfo FUNCTION
-Output information for the corresponding contact / Email address is the unique identifier
-Parameters:
-- email (emailUID)
-*/
+console.log('----------- TASK 5 - GET CONTACT INFO -----------')
 
 function getContactInfo(emailUID) {
    let result = '';
@@ -257,13 +201,13 @@ function getContactInfo(emailUID) {
     result = `
 Name: ${contactList[contact].name}
 E-mail: ${contactList[contact].email}`;
-    //Since the phone number and company strings might be empty, we can pass those through if statements to only add them if they are available.
 
+    /*Since the phone number and company strings might be empty, 
+    we can pass those through if statements to only add them if they are available.*/
     if (contactList[contact].phoneNumber !== '' || undefined ) {
       result += `
 Phone number: ${contactList[contact].phoneNumber}`;
     };
-
     if (contactList[contact].company !== '' || undefined) {
       result += `
 Company: ${contactList[contact].company}`;
@@ -271,76 +215,47 @@ Company: ${contactList[contact].company}`;
   } else {
     result = "Contact not found";
   };
-
   console.log(result);
 };
 
-    /* NOT SURE WHY _ but if not 'pulling Name:{}, Email: {}, Phone Number {}, 
-   Company: { }, to the beginning of the line, the format goes bonkers. */
+/* NOT SURE WHY _ but if not 'pulling Name:{}, Email: {}, Phone Number {}, 
+Company: { }, to the beginning of the line, the format goes bonkers. */
 
-// Testing function
-console.log('----- testing the functions ----')
-console.log('') // used for clearer formatting in console.log
+console.log('----- getting contact info test ----')
+console.log('') //used for clearer formatting in console.log
 
+// Calling function
 getContactInfo('dale.cooper@mail.com') // has all props
 getContactInfo('dr.jacoby@mail.com') // has only name and email
-
-console.log('') // used for clearer formatting in console.log
 getContactInfo('not.existing@mail.com') //throws error
 
 
-// ----------- TASK 6 -----------
-console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 6 -----------')
-console.log('') // used for clearer formatting in console.log
 
-/* 
-listAllContacts() FUNCTION
-List all contacts available in the contact list
-Output example:
-“Anna Valsdóttir <ana@tskoli.is>, Jón Jónsson <jon@tskoli.is>, Hildur Eriksdóttir <hildur@tskoli.is>”
-*/
+// ----------- TASK 6 LIST ALL CONTACTS -----------
+console.log('') // used for clearer formatting in console.log
+console.log('----------- TASK 6 -LIST ALL CONTACTS -----------')
 
+// Using forEach array function
 function listAllContacts() {
-   let listContacts = '';
-
-   // for..in - to check through all the contact properties
-   for (var i = 0, x = contactList.length; i < x; i++) {
-      for (let props in contactList[i]) {
-         // use switch to extract name and email to the listContacts
-         switch (props) {
-            case 'name':
-               listContacts += contactList[i].name
-               break;
-            case 'email':
-               listContacts += ` <${contactList[i].email}>, `
-         }
-      }
-   }
-   console.log(listContacts)
+  contactList.forEach(contact => console.log(`${contact.name} <${contact.email}>, `))
 };
 
-console.log('----- testing the functions ----')
-console.log('') // used for clearer formatting in console.log
-// Testing function
-listAllContacts();
+// testing function
+console.log('----- list all contacts test ----')
+console.log('') //used for clearer formatting in console.log
+// Calling function
+listAllContacts(); 
 
 
-// ----------- TASK 7 -----------
-console.log('') // used for clearer formatting in console.log
-console.log('----------- TASK 7 -----------')
-console.log('') // used for clearer formatting in console.log
 
-/* 
-clearContacts FUNCTION
-Remove all contacts from the list /)
-*/
+// ----------- TASK 7 CLEAR ALL CONTACTS -----------
+
+console.log('') // used for clearer formatting in console.log
+console.log('----------- TASK 7 - CLEAR ALL CONTACTS  -----------')
 
 const clearContacts = () => {
-// ask user if they want to proceed in deleting all contacts
 let proceed = confirm('Do you want to proceed to delete all contacts?')
  if (proceed === true) {
-    
     for (let i = 0, l = contactList.length; i < l; i++) {
       delete contactList[i];
     };
@@ -350,13 +265,12 @@ let proceed = confirm('Do you want to proceed to delete all contacts?')
  }
 };
 
-console.log('----- testing the functions ----')
-console.log('') // used for clearer formatting in console.log
 
-//If opening the index.html and viewing in browser, the contact list will be deleted from the start. Click cancel to view the outputs before deleting all the contactList.
+console.log('----- clear all contacts test ----')
+console.log('') //used for clearer formatting in console.log
+//call function
+clearContacts(); 
 
-
-// NOTE : clearContacts does not work in VSCode console.log 
-
-clearContacts();
+/* If opening the index.html and viewing in browser, the contact list will be deleted from the start. Click cancel to view the outputs before deleting all the contactList.
+NOTE : clearContacts does not work in VSCode console.log */
 
