@@ -352,9 +352,11 @@ let proceed = confirm('Do you want to proceed to delete all contacts?')
 
 console.log('----- testing the functions ----')
 console.log('') // used for clearer formatting in console.log
+
+//If opening the index.html and viewing in browser, the contact list will be deleted from the start. Click cancel to view the outputs before deleting all the contactList.
+
+
 // NOTE : clearContacts does not work in VSCode console.log 
-// Either open in REPL.IT or:
-// open index.html and open console.log in browser to see confirm() in action
 
 clearContacts();
 
