@@ -227,6 +227,8 @@ console.log('') //used for clearer formatting in console.log
 // Calling function
 getContactInfo('dale.cooper@mail.com') // has all props
 getContactInfo('dr.jacoby@mail.com') // has only name and email
+
+console.log('') //used for clearer formatting in console.log
 getContactInfo('not.existing@mail.com') //throws error
 
 
